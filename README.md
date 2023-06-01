@@ -2,13 +2,14 @@
 
 ## users テーブル
 
-| Column             |  Type  | Options                   |
-| ------------------ | ------ | --------------------------|
-| nickname           | string | null: false               |
-| email              | string | null: false, unique: true |
-| encrypted_password | string | null: false               |
-| name               | string | null: false               |
-| birthday           | string | null: false               |
+| Column                |  Type  | Options                   |
+| --------------------- | ------ | --------------------------|
+| nickname              | string | null: false               |
+| email                 | string | null: false, unique: true |
+| encrypted_password    | string | null: false               |
+| password_confirmation | string | null: false               |
+| name                  | string | null: false               |
+| birthday              | string | null: false               |
 
 ### Association
 
@@ -19,16 +20,15 @@
 
 | Column             |  Type      | Options                        |
 | ------------------ | ---------- | -------------------------------|
-| image              | string     | null: false                    |
 | name               | string     | null: false                    |
 | explanation        | text       | null: false                    |
-| category           | string     | null: false                    |
-| condition          | string     | null: false                    |
-| postage            | string     | null: false                    |
-| address            | references | null: false, foreign_key: true |
-| delivery_days      | string     | null: false,                   |
+| category_id        | integer    | null: false                    |
+| condition_id       | integer    | null: false                    |
+| postage_id         | integer    | null: false                    |
+| prefecture_id      | integer    | null: false,                   |
+| delivery_day_id    | integer    | null: false,                   |
 | price              | string     | null: false,                   |
-
+| user               | references | null: false, foreign_key: true |
 ### Association
 
 - belongs_to :user
@@ -52,8 +52,8 @@
 
 | Column             |  Type      | Options                        |
 | ------------------ | ---------- | -------------------------------|
-| zip-code           | string     | null: false                    |
-| prefecture         | string     | null: false                    |
+| zip_code           | string     | null: false                    |
+| prefecture_id      | integer    | null: false                    |
 | city               | string     | null: false                    |
 | house_number       | string     | null: false                    |
 | building           | string     |                                |
