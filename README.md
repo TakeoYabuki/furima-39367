@@ -7,9 +7,11 @@
 | nickname              | string | null: false               |
 | email                 | string | null: false, unique: true |
 | encrypted_password    | string | null: false               |
-| password_confirmation | string | null: false               |
-| name                  | string | null: false               |
-| birthday              | string | null: false               |
+| first_name            | string | null: false               |
+| last_name             | string | null: false               |
+| first_name_kana       | string | null: false               |
+| last_name_kana        | string | null: false               |
+| birthday              | date   | null: false               |
 
 ### Association
 
@@ -27,7 +29,7 @@
 | postage_id         | integer    | null: false                    |
 | prefecture_id      | integer    | null: false,                   |
 | delivery_day_id    | integer    | null: false,                   |
-| price              | string     | null: false,                   |
+| price              | integer    | null: false,                   |
 | user               | references | null: false, foreign_key: true |
 ### Association
 
