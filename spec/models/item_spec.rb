@@ -27,12 +27,24 @@ RSpec.describe Item, type: :model do
          expect(@item.errors.full_messages).to include("Name can't be blank")
       end
 
+      it '商品名は40文字までしか受け付けない' do
+        @item.name = 'a' * 41
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Name is too long (maximum is 40 characters)")
+      end
+
       it '商品の説明があること' do
         @item.explanation = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Explanation can't be blank")
       end
 
+      it '商品の説明は１０００文字までしか受け付けない' do
+        @item.explanation = 'a' * 1001
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Explanation is too long (maximum is 1000 characters)")
+      end
+      
       it 'カテゴリーの情報であること' do
         @item.category_id = 1
         @item.valid?
