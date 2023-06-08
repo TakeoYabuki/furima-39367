@@ -38,6 +38,8 @@ class ItemsController < ApplicationController
     item = Item.find(params[:id])
     if item.destroy
       redirect_to root_path(@item)
+    else
+      render:edit
     end  
   end  
 
