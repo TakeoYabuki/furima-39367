@@ -9,6 +9,7 @@ class Item < ApplicationRecord
   belongs_to :delivery_day 
 
   belongs_to :user
+  has_one :purchase
   
   validates :name, presence: true, length: { maximum: 40 }
   validates :explanation, presence: true, length: { maximum: 1000 }
