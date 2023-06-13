@@ -9,7 +9,6 @@ class PurchaseAddress
     validates :house_number
     validates :item_id 
     validates :user_id
-    validates :building, allow_blank: true
     validates :phone_number, format: { with: /\A\d{10,11}\z/, message: "is invalid. It must be 10 or 11 digits" }
   end
  
